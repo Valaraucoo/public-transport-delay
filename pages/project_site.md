@@ -1,11 +1,10 @@
 ---
-layout: post
+layout: page
 title:  "O projekcie"
 date:   2020-06-04 20:07:49 +0200
-categories: jekyll update
 ---
 
-## O projekcie, motywacja
+# O projekcie, motywacja
 
 Celem projektu jest analiza ruchu miejskich autobusów w Krakowie i ich ewentualnych spóźnień. Na podstawie wyników planujemy stworzyc pełnoprawną aplikację webową słuzącą do przewidywania opóźnień konkretnych autobusów na danej linii w danym momencie. 
 
@@ -15,7 +14,7 @@ Od kilku lat MPK Kraków udostępnia dane między innymi z tablic elektronicznyc
 
 Dane są pozyskiwane z czujników GPS znajdujących się w pojazdach, wysyłane są do serwerowni, do której mozemy juz wykonywac zapytania HTTP o dany pojazd, lub określoną linię autobusową. API udostępnia dosyc fajną funkcjonalnośc, której zaraz się przyjrzymy - otóz mozemy zaobserowac, w której minucie pojazd dojechał (bądź opóścił) przystanek - co za tym idzie w łatwy sposób mozemy zdefiniowac spóźnienie.
 
-# Dostępne API
+## Dostępne API
 
 Na wstępie musimy wyróźnic kilka podstawowych elementów API, z których będziemy korzystac:
 
@@ -37,7 +36,7 @@ Odpytując kolejne endpointy jesteśmy w stanie uzyskac informacje o odjazdach z
 Dane będą musiały byc zbierane przez kilka dni, zeby jak najlepiej uogólnic opóźnienia w skali całego tygodnia. 
 
 
-# Milestone'y
+## Milestone'y
 
 1. Pierwszym etapem będzie integracja bazy danych z dostępnym API oraz zdobycie pierwszych informacji o konkretnej lini autobusowej.
 2. Jako drugi etap postaramy się zebrac dane dla całego Krakowa i w sensowny sposób je opisac i zaprezentowac.
@@ -46,9 +45,3 @@ Dane będą musiały byc zbierane przez kilka dni, zeby jak najlepiej uogólnic 
 5. Budowa modeli predykcyjnych i statystycznych.
 6. Implementacja uzytecznej aplikacji webowej.
 
-
-
-# Linki i materiały
-
-* <a href="https://www.youtube.com/watch?v=Ax1Pufd-Vqg">Przykładowa analiza spóźnień autobusów</a>
-* <a href="https://www.youtube.com/watch?v=ETBV9L7MKUk&feature=youtu.be">Predykcja opóźnień transportu ublicznego</a>
