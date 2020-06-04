@@ -1,72 +1,53 @@
 ---
 layout: page
-title: simple site
-tagline: Easy websites with GitHub Pages
-description: Minimal tutorial on making a simple website with GitHub Pages
+title:  "O projekcie"
+date:   2020-06-04 20:07:49 +0200
 ---
 
-[Github Pages](https://pages.github.com) provide a simple way to make a
-website using
-[Markdown](https://daringfireball.net/projects/markdown/) and
-[git](https://git-scm.com).
+## O projekcie, motywacja
 
-For me, the painful aspects of making a website are
+Celem projektu jest analiza ruchu miejskich autobusów w Krakowie i ich ewentualnych spóźnień. Na podstawie wyników planujemy stworzyc pełnoprawną aplikację webową słuzącą do przewidywania opóźnień konkretnych autobusów na danej linii w danym momencie. 
 
-- Working with html and css
-- Finding a hosting site
-- Transferring stuff to the hosting site
+Kogo nie nurtują spóźnienia? Naszą motywacją jest uzyskanie odpowiedzi, czy i ile minut (w Krakowie autobusy zawsze się spóźniają) mój autobus będzie dziś spóźniony. Na spóźnienie ma na pewno wpływ bardzo wiele czynników, które postaramy się przeanalizowac, ale najpierw od początku.
 
-With [GitHub Pages](https://pages.github.com), you just write things in
-[Markdown](https://daringfireball.net/projects/markdown/),
-[GitHub](https://github.com) hosts the site for you, and you just push
-material to your GitHub repository with `git add`, `git commit`, and
-`git push`.
+Od kilku lat MPK Kraków udostępnia dane między innymi z tablic elektronicznych znajdujących się na przystankach (ttss.krakow.pl), co za tym idzie mamy udostępnione API podające nam informacje o lokalizacji, trasie i planowanym odjeździe poszczególnych autobusów i tramwajów. 
 
-If you love [git](https://git-scm.com/) and
-[GitHub](https://github.com), you'll love
-[GitHub Pages](https://pages.github.com), too.
+Dane są pozyskiwane z czujników GPS znajdujących się w pojazdach, wysyłane są do serwerowni, do której mozemy juz wykonywac zapytania HTTP o dany pojazd, lub określoną linię autobusową. API udostępnia dosyc fajną funkcjonalnośc, której zaraz się przyjrzymy - otóz mozemy zaobserowac, w której minucie pojazd dojechał (bądź opóścił) przystanek - co za tym idzie w łatwy sposób mozemy zdefiniowac spóźnienie.
 
-The sites use [Jekyll](https://jekyllrb.com/), a
-[ruby](https://www.ruby-lang.org/en/) [gem](https://rubygems.org/), to
-convert Markdown files to html, and this part is done
-automatically when you push the materials to the `gh-pages` branch
-of a GitHub repository.
+# Dostępne API
 
-The [GitHub](https://pages.github.com) and
-[Jekyll](https://jekyllrb.com) documentation is great, but I thought it
-would be useful to have a minimal tutorial, for those who just want to
-get going immediately with a simple site. To some readers, what GitHub
-has might be simpler and more direct.  But if you just want to create
-a site like the one you're looking at now, read on.
+Na wstępie musimy wyróźnic kilka podstawowych elementów API, z których będziemy korzystac:
 
-Start by reading the [Overview page](pages/overview.html), which
-explains the basic structure of these sites. Then read
-[how to make an independent website](pages/independent_site.html). Then
-read any of the other things, such as
-[how to test your site locally](pages/local_test.html).
+* `tripId` - identyfikator konkretnego przejazdu na określonej trasie,
+* `vehicleId` - identyfikator pojazdu,
+* `routeId` - identyfikator trasy, w której zawierają się przejazdy,
+* `stopId` - identyfikator przystanku.
 
-- [Overview](pages/overview.html)
-- [Making an independent website](pages/independent_site.html)
-- [Making a personal site](pages/user_site.html)
-- [Making a site for a project](pages/project_site.html)
-- [Making a jekyll-free site](pages/nojekyll.html)
-- [Testing your site locally](pages/local_test.html)
-- [Resources](pages/resources.html)
+Teraz mozemy przejśc do omówienia kolejnych endpointów:
 
-If anything here is confusing (or _wrong_!), or if I've missed
-important details, please
-[submit an issue](https://github.com/kbroman/simple_site/issues), or (even
-better) fork [the GitHub repository for this website](https://github.com/kbroman/simple_site),
-make modifications, and submit a pull request.
+* <a href="http://91.223.13.70/internetservice/geoserviceDispatcher/services/vehicleinfo/vehicles">`/vehicles`</a>  - zwraca listę wszystkich rejestrowanych pojazdów, wraz z `tripId`,
 
----
+* <a href="http://91.223.13.70/internetservice/geoserviceDispatcher/services/stopinfo/stops?left=-648000000&bottom=-324000000&right=648000000&top=324000000">`/stops`</a> - zwraca listę przystanków w Krakowie, 
+* <a href="http://91.223.13.70/internetservice/services/passageInfo/stopPassages/stop?stop=77">`/?stop=stopId`</a> - zwraca informację o konkretnym przystanku, wraz z informacjami o `routeId` i `tripid`,
+* <a href="http://91.223.13.70/internetservice/services/tripInfo/tripPassages?tripId=8095261304188834572&vehicleId=-1152921504094991939">`/tripPassages?tripId=tId&vehicleId=vId`</a> - zwraca trasę i przewidywane czasy przyjazdu tramwaju o podanym vID, realizującego przejazd tID.
 
-The source for this minimal tutorial is [on github](https://github.com/kbroman/simple_site).
+Odpytując kolejne endpointy jesteśmy w stanie uzyskac informacje o odjazdach z wybranego przez nas przystanku. Najbardziej przydatny będzie nam endpoint `/?stop=stopId`, poniewaz zawiera ogół potrzebnych informacji do zdefiniowania opóźnienia. 
 
-Also see my [tutorials](https://kbroman.org/pages/tutorials) on
-[git/github](https://kbroman.org/github_tutorial),
-[GNU make](https://kbroman.org/minimal_make),
-[knitr](https://kbroman.org/knitr_knutshell),
-[R packages](https://kbroman.org/pkg_primer),
-[data organization](https://kbroman.org/dataorg),
-and [reproducible research](https://kbroman.org/steps2rr).
+Dane będą musiały byc zbierane przez kilka dni, zeby jak najlepiej uogólnic opóźnienia w skali całego tygodnia. 
+
+
+# Milestone'y
+
+1. Pierwszym etapem będzie integracja bazy danych z dostępnym API oraz zdobycie pierwszych informacji o konkretnej lini autobusowej.
+2. Jako drugi etap postaramy się zebrac dane dla całego Krakowa i w sensowny sposób je opisac i zaprezentowac.
+3. Trzecim etapem będzie dokładna analiza, z wyszczególnieniem konkretnej lini, jak i ogólną predykcją dla całego miasta.
+4. Prezentacja pierwszych rezultatów, ich analiza i ocena przydatności.
+5. Budowa modeli predykcyjnych i statystycznych.
+6. Implementacja uzytecznej aplikacji webowej.
+
+
+
+# Linki i materiały
+
+* <a href="https://www.youtube.com/watch?v=Ax1Pufd-Vqg">Przykładowa analiza spóźnień autobusów</a>
+* <a href="https://www.youtube.com/watch?v=ETBV9L7MKUk&feature=youtu.be">Predykcja opóźnień transportu ublicznego</a>
