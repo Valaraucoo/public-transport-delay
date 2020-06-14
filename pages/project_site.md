@@ -26,7 +26,7 @@ Na wstępie musimy wyróźnic kilka podstawowych elementów API, z których będ
 Teraz mozemy przejśc do omówienia kolejnych endpointów:
 
 * <a href="http://91.223.13.70/internetservice/geoserviceDispatcher/services/vehicleinfo/vehicles">`/vehicles`</a>  - zwraca listę wszystkich rejestrowanych pojazdów, wraz z `tripId`,
-
+* <a href="http://91.223.13.70/internetservice/services/routeInfo/routeStops?routeId=8095257447305839175">`/routeInfo/routeStops?routeId=routeId`</a> - zwraca numery i nazwy przystanków na trasie o podanym ID, w kolejności alfabetycznej,
 * <a href="http://91.223.13.70/internetservice/geoserviceDispatcher/services/stopinfo/stops?left=-648000000&bottom=-324000000&right=648000000&top=324000000">`/stops`</a> - zwraca listę przystanków w Krakowie, 
 * <a href="http://91.223.13.70/internetservice/services/passageInfo/stopPassages/stop?stop=77">`/?stop=stopId`</a> - zwraca informację o konkretnym przystanku, wraz z informacjami o `routeId` i `tripid`,
 * <a href="http://91.223.13.70/internetservice/services/tripInfo/tripPassages?tripId=8095261304188834572&vehicleId=-1152921504094991939">`/tripPassages?tripId=tId&vehicleId=vId`</a> - zwraca trasę i przewidywane czasy przyjazdu tramwaju o podanym vID, realizującego przejazd tID.
