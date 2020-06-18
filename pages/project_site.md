@@ -12,7 +12,7 @@ Kogo nie nurtują spóźnienia? Naszą motywacją jest uzyskanie odpowiedzi, czy
 
 Od kilku lat MPK Kraków udostępnia dane między innymi z tablic elektronicznych znajdujących się na przystankach (ttss.krakow.pl), co za tym idzie mamy udostępnione API podające nam informacje o lokalizacji, trasie i planowanym odjeździe poszczególnych autobusów i tramwajów. 
 
-Dane są pozyskiwane z czujników GPS znajdujących się w pojazdach, wysyłane są do serwerowni, do której mozemy juz wykonywac zapytania HTTP o dany pojazd, lub określoną linię autobusową. API udostępnia dosyc fajną funkcjonalnośc, której zaraz się przyjrzymy - otóz mozemy zaobserowac, w której minucie pojazd dojechał (bądź opóścił) przystanek - co za tym idzie w łatwy sposób mozemy zdefiniowac spóźnienie.
+Dane są pozyskiwane z czujników GPS znajdujących się w pojazdach, wysyłane są do serwerowni, do której mozemy juz wykonywac zapytania HTTP o dany pojazd, lub określoną linię autobusową. API udostępnia dosyc fajną funkcjonalnośc, której zaraz się przyjrzymy - otóz mozemy zaobserowac, w której minucie pojazd dojechał (bądź opuścił) przystanek - co za tym idzie w łatwy sposób mozemy zdefiniowac spóźnienie.
 
 ## Dostępne API
 
