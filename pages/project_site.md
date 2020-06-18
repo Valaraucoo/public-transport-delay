@@ -45,3 +45,8 @@ Dane będą musiały byc zbierane przez kilka dni, zeby jak najlepiej uogólnic 
 5. Budowa modeli predykcyjnych i statystycznych.
 6. Implementacja uzytecznej aplikacji webowej.
 
+
+## Jakie dane chcemy zbierać?
+Na pewno będą to dane w pełni reprezentujące dany przejazd - `tripId` oraz `vehicleId` - następnie musimy zebrać kolejne numery przeystanków (na których będziemy mierzyć opóźnienia), co za tym idzie przydadzą się jeszcze informacje o przystankach (identyfikator), data i godzina pomiaru, wartość opóźnienia, oraz jeśli się uda to natężenie ruchu w okolicy przystanku o danej godzinie - tutaj na pomoc przyjdzie nam Google Maps API.
+
+
