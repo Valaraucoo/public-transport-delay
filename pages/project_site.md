@@ -47,6 +47,6 @@ Dane będą musiały byc zbierane przez kilka dni, zeby jak najlepiej uogólnic 
 
 
 ## Jakie dane chcemy zbierać?
-Na pewno będą to dane w pełni reprezentujące dany przejazd - `tripId` oraz `vehicleId` - następnie musimy zebrać kolejne numery przeystanków (na których będziemy mierzyć opóźnienia), co za tym idzie przydadzą się jeszcze informacje o przystankach (identyfikator), data i godzina pomiaru, wartość opóźnienia, oraz jeśli się uda to natężenie ruchu w okolicy przystanku o danej godzinie - tutaj na pomoc przyjdzie nam Google Maps API.
+Na pewno będą to dane w pełni reprezentujące dany przejazd - `tripId` oraz `vehicleId` - następnie musimy zebrać kolejne numery przystanków (na których będziemy mierzyć opóźnienia), co za tym idzie przydadzą się jeszcze informacje o przystankach (identyfikator), data i godzina pomiaru, wartość opóźnienia - `actualRelativeTime` - przechwycona w momencie przejścia danego postoju z tablicy *actual* do tablicy *old*, oraz jeśli się uda to natężenie ruchu w okolicy przystanku o danej godzinie - tutaj na pomoc przyjdzie nam Google Maps API lub inne posiadające dane o natężeniu ruchu w danym miejscu.
 
 
