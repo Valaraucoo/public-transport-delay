@@ -37,7 +37,7 @@ Natomiast informacje o natęzeniu ruchu na odcinku drogi zdobędziemy dzięki AP
 
 ### Skrypt do pobierania danych
 
-W naszym skrypcie (link do pobrania [tutaj](https://github.com/Valaraucoo/bus_data_scrapper/)) stale monitorujemy stan pojazdów na przystanku, a co kilka iteracji odświezamy informacje o pogodzie i natęzeniu ruchu. 
+W naszym skrypcie (link do pobrania [tutaj](https://github.com/Valaraucoo/bus_data_scrapper/)) stale monitorujemy stan pojazdów na przystanku - jeśli autobus dotarł na przystanek sprawdzamy, jaka była róznica czasu między realnym przyjazdem, a planowanym przyjazdem - natomiast, jesli chodzi o pozostałe dane to co kilka iteracji odświezamy informacje o pogodzie i natęzeniu ruchu. 
 
 Teorytycznie API TTSS, jest dosyc wydajne, jednak w praktyce nie mozemy zbyt szybko wysyłac zapytań do wielu endpointów. Jednak jest to kwestia [łatwo konfigurowalna](https://github.com/Valaraucoo/bus_data_scrapper/blob/master/README.md), jeśli ktoś by chciał na własną rękę zmienic parametry pobierania danych.
 
