@@ -41,6 +41,12 @@ W naszym skrypcie (link do pobrania [tutaj](https://github.com/Valaraucoo/bus_da
 
 Teorytycznie API TTSS, jest dosyc wydajne, jednak w praktyce nie mozemy zbyt szybko wysyłac zapytań do wielu endpointów. Jednak jest to kwestia [łatwo konfigurowalna](https://github.com/Valaraucoo/bus_data_scrapper/blob/master/README.md), jeśli ktoś by chciał na własną rękę zmienic parametry pobierania danych.
 
+Wszystkie dane są automatycznie zapisywane w chmurze w odpowiednim dokumencie na [Firebase](https://firebase.google.com/), takie rozwiązanie umozliwia nam wspólne zbieranie danych przez wiele osób oraz ich łatwą dostępnośc.
 
 ### Zbieranie danych
-...
+Sam proces zbierania danych jest uwarunkowany szybkością dostępnego API i wykonywaniem do niego zapytań. 
+
+Zbieranie danych zaczynaliśmy codziennie o 5 rano az do późnych godzin wieczornych - proces powtarzany był na początku przez równy tydzień - a dane zbierane były tylko dla linii nr `139`. 
+Zapytania do API o konkretny przystanek dokonywane były co ok. minutę przez co wynikała duza niedokładnośc danych. 
+
+W kolejnym tygodniu proces wykonywania zapytań przyspieszyliśmy do poziomu ok. 20 sekund. Mimo pojawienia się braków danych - spowodowanych brakiem odpowiedzi z API w określonym czasie, udało nam się zebrac dokładniejsze dane z mniejszym błędem metody.
